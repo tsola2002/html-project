@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave</title>
+    <style>
+        .loader {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: loader-rotation 2s alternate-reverse infinite;
+            transition: display 3s;
+        }
+
+        .loader:hover {
+            transform: 120%;
+            background-color: aqua;
+        }
+    @keyframes loader-rotation {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <h1>Dave Page🥳🥳</h1>
+    </div>
+</body>
+</html>
