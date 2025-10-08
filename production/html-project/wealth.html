@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealth Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Animated background particles */
+        .particle {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 215, 0, 0.6);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) translateX(0) scale(1);
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-100px) translateX(50px) scale(1.5);
+                opacity: 1;
+            }
+        }
+
+        /* Animated gradient background */
+        .bg-animation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #6bcf7f, #4d96ff);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            opacity: 0.3;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Main content container */
+        .content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        /* Main title with bounce animation */
+        .wealth-title {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 
+                0 0 10px rgba(255, 215, 0, 0.8),
+                0 0 20px rgba(255, 215, 0, 0.6),
+                0 0 30px rgba(255, 215, 0, 0.4),
+                3px 3px 10px rgba(0, 0, 0, 0.5);
+            animation: bounce 2s infinite;
+            letter-spacing: 3px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            40% {
+                transform: translateY(-30px) scale(1.05);
+            }
+            60% {
+                transform: translateY(-15px) scale(1.02);
+            }
+        }
+
+        /* Subtitle with fade and slide animation */
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-top: 20px;
+            animation: fadeSlide 3s ease-in-out infinite;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeSlide {
+            0%, 100% {
+                opacity: 0.5;
+                transform: translateX(-20px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateX(20px);
+            }
+        }
+
+        /* Dollar sign decorations */
+        .dollar-sign {
+            position: absolute;
+            font-size: 3rem;
+            color: rgba(255, 215, 0, 0.7);
+            animation: rotate 4s linear infinite;
+            font-weight: bold;
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg) translateX(100px) rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg) translateX(100px) rotate(-360deg);
+            }
+        }
+
+        /* Pulse effect for emphasis */
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .wealth-title {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Animated background  -->
+    <div class="bg-animation"></div>
+
+     Main content 
+    <div class="content">
+        <h1 class="wealth-title">THIS IS WEALTH PAGE</h1>
+        <p class="subtitle pulse">💰 Prosperity & Abundance 💰</p>
+    </div>
+
+     <!-- Dollar sign decorations  -->
+    <div class="dollar-sign" style="top: 20%; left: 20%;">$</div>
+    <div class="dollar-sign" style="top: 70%; right: 20%; animation-delay: 1s;">$</div>
+    <div class="dollar-sign" style="top: 40%; right: 30%; animation-delay: 2s;">$</div>
+
+    <script>
+        // Create floating particles dynamically
+        function createParticles() {
+            const particleCount = 30;
+            const body = document.body;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random positioning
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                
+                // Random animation delay and duration
+                particle.style.animationDelay = Math.random() * 6 + 's';
+                particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+                
+                // Random size
+                const size = Math.random() * 15 + 10;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                body.appendChild(particle);
+            }
+        }
+
+        // Add sparkle effect on mouse move
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.9) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'particle';
+                sparkle.style.left = e.clientX + 'px';
+                sparkle.style.top = e.clientY + 'px';
+                sparkle.style.width = '10px';
+                sparkle.style.height = '10px';
+                sparkle.style.animationDuration = '2s';
+                document.body.appendChild(sparkle);
+                
+                setTimeout(() => sparkle.remove(), 2000);
+            }
+        });
+
+        // Initialize particles on page load
+        createParticles();
+
+        // Add color change effect to title on click
+        const title = document.querySelector('.wealth-title');
+        const colors = ['#ffd700', '#ff6b6b', '#4d96ff', '#6bcf7f', '#ff69b4'];
+        let colorIndex = 0;
+
+        title.addEventListener('click', () => {
+            colorIndex = (colorIndex + 1) % colors.length;
+            title.style.color = colors[colorIndex];
+        });
+    </script>
+</body>
+</html>
