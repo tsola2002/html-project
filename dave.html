@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dave's boilerplate</title>
+</head>
+   <style>
+        .loader {
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: loader-rotation 2s alternate-reverse infinite;
+            transition: display 3s;
+        }
+
+        .loader:hover {
+            transform: 120%;
+            background-color: aqua;
+        }
+
+        @keyframes loader-rotation {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .box {
+            height: 100px;
+            width: 180px;
+           color: red;
+            transition: display 1s;
+        }
+
+        .box:hover {
+            animation: box-rotation 10s reverse infinite;
+        }
+        @keyframes box-rotation {
+            from {
+                transform: rotate(360deg)
+            }
+
+            to {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="loader">
+        <div class="box">
+
+            <h1>Welcome to Dave's Page🥳🥳</h1>
+        </div>
+
+    </div>
+</body>
+</html>
